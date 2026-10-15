@@ -15,8 +15,6 @@ export const TechnicianProfile: React.FC = () => {
     const [loading, setLoading] = useState(true)
     const [savingStatus, setSavingStatus] = useState(false)
     const [error, setError] = useState('')
-    const [statusError, setStatusError] = useState('')
-    const [statusSuccess, setStatusSuccess] = useState('')
 
     useEffect(() => {
         const fetchProfile = async () => {
@@ -40,15 +38,14 @@ export const TechnicianProfile: React.FC = () => {
         }
 
         setSavingStatus(true)
-        setStatusError('')
-        setStatusSuccess('')
+        
 
         try {
             await updateTechnicianStatus(status)
-            setStatusSuccess('Availability status updated successfully.')
+            
         } catch (err) {
             console.error('Failed to update technician status:', err)
-            setStatusError('Failed to update status. Please try again.')
+            
         } finally {
             setSavingStatus(false)
         }
