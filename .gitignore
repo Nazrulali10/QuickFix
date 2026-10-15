@@ -1,0 +1,17 @@
+
+# Frontend dependencies and build output
+client/node_modules/
+client/dist/
+
+# Backend build output
+server/target/
+
+.env
+.env.*
+.idea/
+
+# Operating system files
+.DS_Store
+Thumbs.db
+
+server/src/main/resources/application-local.properties
