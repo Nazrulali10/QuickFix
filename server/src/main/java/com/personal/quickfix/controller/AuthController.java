@@ -38,38 +38,46 @@ public class AuthController {
 
         return ResponseEntity.status(HttpStatus.CREATED).body(response);
     }
-    @PostMapping("/login")
-    public LoginResponse login(
-            @RequestBody LoginRequest request,
-            HttpServletResponse response) {
-
-        LoginResponse loginResponse = authService.login(request);
-
-        Cookie cookie = new Cookie("token", loginResponse.getToken());
-        cookie.setHttpOnly(true);
-        cookie.setSecure(false); // true later when using HTTPS
-        cookie.setPath("/");
-        cookie.setMaxAge(24 * 60 * 60);
-
-        response.addCookie(cookie);
-
-        return loginResponse;
-    }
+    
     @GetMapping("/me")
     public ResponseEntity<Map<String, Object>> checkAuth() {
         return ResponseEntity.ok(authService.checkAuth());
     }
-    @PostMapping("/logout")
-    public ResponseEntity<Void> logout(HttpServletResponse response) {
+    
+@PostMapping("/login")
+public LoginResponse login(
+        @RequestBody LoginRequest request,
+        HttpServletResponse response) {
 
-        ResponseCookie cookie = ResponseCookie.from("token", "")
-                .httpOnly(true)
-                .path("/")
-                .maxAge(0)
-                .build();
+    LoginResponse loginResponse = authService.login(request);
 
-        response.addHeader(HttpHeaders.SET_COOKIE, cookie.toString());
+    ResponseCookie cookie = ResponseCookie.from("token", loginResponse.getToken())
+            .httpOnly(true)
+            .secure(true)
+            .sameSite("None")
+            .path("/")
+            .maxAge(24 * 60 * 60)
+            .build();
 
-        return ResponseEntity.noContent().build();
-    }
+    response.addHeader(HttpHeaders.SET_COOKIE, cookie.toString());
+
+    return loginResponse;
+}
+
+@PostMapping("/logout")
+public ResponseEntity<Void> logout(HttpServletResponse response) {
+
+    ResponseCookie cookie = ResponseCookie.from("token", "")
+            .httpOnly(true)
+            .secure(true)
+            .sameSite("None")
+            .path("/")
+            .maxAge(0)
+            .build();
+
+    response.addHeader(HttpHeaders.SET_COOKIE, cookie.toString());
+
+    return ResponseEntity.noContent().build();
+}
+
 }
