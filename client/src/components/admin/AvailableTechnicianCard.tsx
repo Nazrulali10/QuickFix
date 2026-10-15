@@ -6,7 +6,7 @@ const AvailableTechnicianCard = ({
   onAssign,
 }: AvailableTechnicianCardProps) => {
   return (
-    <div className="rounded-xl border border-gray-200 bg-white p-5">
+    <div className="rounded-xl border border-gray-200 bg-gray-50 p-5">
       <div className="flex items-start justify-between gap-3">
         <div>
           <h3 className="font-semibold text-gray-900">{technician.name}</h3>

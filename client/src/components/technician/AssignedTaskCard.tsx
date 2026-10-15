@@ -20,7 +20,7 @@ const AssignedTaskCard: React.FC<AssignedTaskCardProps> = ({
   updateRequestStatus,
 }) => {
   return (
-    <div className="bg-white border border-gray-200 rounded-lg p-4 shadow-sm flex flex-col md:flex-row md:items-center justify-between gap-4 relative">
+    <div className="bg-gray-50 border border-gray-200 rounded-lg p-4 shadow-sm flex flex-col md:flex-row md:items-center justify-between gap-4 relative">
       <div className="flex-1 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-5 gap-4 items-center text-sm">
         <div>
           <span className="block text-xs font-semibold text-gray-400 uppercase">

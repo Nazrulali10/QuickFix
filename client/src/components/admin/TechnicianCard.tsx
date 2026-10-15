@@ -14,7 +14,7 @@ const TechnicianCard = ({ tech }: TechnicianCardProps) => {
     }
   };
   return (
-    <div className="bg-white border border-gray-200 rounded-lg p-4 shadow-sm">
+    <div className="bg-gray-50 border border-gray-200 rounded-lg p-4 shadow-sm">
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4 items-center text-sm">
         <div>
           <span className="block text-xs font-semibold text-gray-400 uppercase">

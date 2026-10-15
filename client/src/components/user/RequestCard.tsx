@@ -4,7 +4,7 @@ import { getStatusBadge } from "../../utils";
 
 const RequestCard = ({ req, handleCancel }: RequestCardProps) => {
   return (
-    <div className="bg-white  rounded-lg p-4 shadow-sm flex flex-col md:flex-row md:items-center justify-between gap-4">
+    <div className="bg-gray-50  rounded-lg p-4 shadow-sm flex flex-col md:flex-row md:items-center justify-between gap-4">
       <div className="flex-1 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-5 gap-4 items-center text-sm">
         <div>
           <span className="block text-xs font-semibold text-purple-400 uppercase">

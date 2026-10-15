@@ -42,7 +42,7 @@ export const Navbar: React.FC = () => {
   };
 
   return (
-    <nav className="flex items-center justify-between px-2 py-5 md:px-16 md:py-4 shadow-md bg-white">
+    <nav className="flex items-center justify-between px-4 py-5 md:px-16 md:py-4 shadow-md bg-white">
       <Link
         to={LOGO_ROUTES[currentRole]}
         className="flex gap-1 font-bold text-xl md:text-2xl"
@@ -56,7 +56,11 @@ export const Navbar: React.FC = () => {
           <NavLink
             to="/my-requests"
             className={({ isActive }) =>
-              isActive ? "text-purple-600 " : "text-gray-500"
+              `text-sm md:text-base ${
+                isActive
+                  ? "text-purple-600 bg-purple-50 font-semibold"
+                  : "text-gray-500 hover:text-purple-600 hover:bg-gray-50"
+              }`
             }
           >
             My Requests
@@ -64,7 +68,7 @@ export const Navbar: React.FC = () => {
         )}
 
         <Button
-          className="bg-purple-100 text-purple-600 rounded-full "
+          className="bg-purple-100 text-purple-600 rounded-full text-sm md:text-base "
           onClick={handleAuthClick}
         >
           {isAuthenticated ? "Sign Out" : "Sign In"}
