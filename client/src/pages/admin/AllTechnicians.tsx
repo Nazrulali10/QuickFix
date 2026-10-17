@@ -5,6 +5,7 @@ import { Button } from "../../components/ui/Button";
 import { useApp } from "../../contexts/AppContext";
 import { ADMIN_NAV } from "../../configs";
 import TechnicianCard from "../../components/admin/TechnicianCard";
+import { CirclePlus } from "lucide-react";
 
 export const AllTechnicians: React.FC = () => {
   const { technicians, getAllTechnicians } = useApp();
@@ -37,9 +38,10 @@ export const AllTechnicians: React.FC = () => {
           </h1>
 
           <Button
-            className="bg-purple-500 text-white rounded-xl mr-5 shadow-md shadow-purple-400 hover:bg-purple-600 duration-300"
+            className="flex gap-1 items-center bg-purple-500 text-white rounded-xl mr-5 shadow-md shadow-purple-400 hover:bg-purple-600 duration-300"
             onClick={() => navigate("/admin/technicians/create")}
           >
+            <CirclePlus size={16} />
             Add Technician
           </Button>
         </div>

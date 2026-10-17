@@ -96,7 +96,7 @@ export const PostRequest: React.FC = () => {
             <div className="w-full flex justify-center pt-2">
               <Button
                 type="submit"
-                className="w-20 active:bg-purple-600 justify-center bg-purple-500 text-white rounded-xl shadow-md"
+                className="w-24 active:bg-purple-600 justify-center bg-purple-500 text-white rounded-xl shadow-md"
                 disabled={loading}
               >
                 {loading ? "Posting..." : "Post"}

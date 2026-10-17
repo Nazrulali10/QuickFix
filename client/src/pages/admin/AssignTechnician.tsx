@@ -3,6 +3,8 @@ import { useEffect, useMemo, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { useApp } from "../../contexts/AppContext";
 import AvailableTechnicianCard from "../../components/admin/AvailableTechnicianCard";
+import { Navbar } from "../../components/Navbar";
+import { Footer } from "../../components/Footer";
 
 export default function AssignTechnician() {
   const { requestId } = useParams<{ requestId: string }>();
@@ -108,7 +110,10 @@ export default function AssignTechnician() {
 
  
 return (
-  <div className="p-6">
+  <div className="min-h-screen flex flex-col bg-white text-gray-800">
+        <Navbar />
+        
+          <div className="p-6 mt-5">
     <div className="mb-6">
       <h1 className="text-2xl font-bold text-gray-900">
         Assign Technician
@@ -152,5 +157,10 @@ return (
       </div>
     )}
   </div>
+         
+        
+        <Footer />
+  </div>
+  
 );
 }

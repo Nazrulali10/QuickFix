@@ -68,7 +68,7 @@ export const Navbar: React.FC = () => {
         )}
 
         <Button
-          className="bg-purple-100 text-purple-600 rounded-full text-sm md:text-base "
+          className="bg-purple-100 text-purple-800 rounded-full text-sm md:text-base "
           onClick={handleAuthClick}
         >
           {isAuthenticated ? "Sign Out" : "Sign In"}

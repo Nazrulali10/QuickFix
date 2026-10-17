@@ -1,4 +1,4 @@
-import React, { createContext, useContext, useEffect, useState } from "react";
+import React, { createContext, useCallback, useContext, useEffect, useState } from "react";
 import axios from "axios";
 import type {
   UserRole,
@@ -206,7 +206,7 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({
     }
   };
 
-  const getTechnicianProfile = async (): Promise<void> => {
+  const getTechnicianProfile = useCallback( async (): Promise<void> => {
     try {
       const response = await api.get<TechnicianProfileResponse>(
         "/api/technicians/me",
@@ -226,7 +226,7 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({
       toast.error("Failed to load technician profile");
       throw error;
     }
-  };
+  },[]);
 
   const sendTechnicianStatus = async (
     status: TechnicianStatus,
